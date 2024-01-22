@@ -31,6 +31,7 @@
       href="http://sparxoo.com/wp-content/uploads/2018/09/Sparxoo-logo.png"
     />
     <title>Signature Generator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
 
   <body
@@ -38,12 +39,14 @@
     ng-cloak
     class="flex items-center justify-center h-screen"
   >
-    <div class="w-3/4 p-8 bg-dark-gray rounded-lg shadow-xl">
+    <div class="w-full md:w-3/4 p-8 bg-dark-gray rounded-lg shadow-xl">
       <div class="text-3xl font-black text-center text-white pt-4 pb-8">
         Email Signature Tool
       </div>
-      <div class="flex items-center justify-center">
-        <div class="w-1/2 pr-12 border-r border-solid border-white">
+      <div class="flex items-center justify-center flex-col md:flex-row">
+        <div
+          class="w-full md:w-1/2 md:pr-12 md:border-r border-solid border-white"
+        >
           <form class="" id="signature-info" ng-submit="main.submit()">
             <label
               class="block text-white font-bold mt-4 uppercase text-xs mb-1"
@@ -105,9 +108,9 @@
             </button>
           </form>
         </div>
-        <div class="w-1/2 pl-12">
+        <div class="w-full md:w-1/2 md:pl-12 mt-12 md:mt-0">
           <div class="mb-2 text-white text-center">PREVIEW</div>
-          <div id="signature-preview" class="bg-white rounded-lg p-8">
+          <div id="signature-preview" class="bg-white rounded-lg p-2 md:p-8">
             <table id="signature" style="font-family: 'Helvetica'">
               <tr>
                 <td
