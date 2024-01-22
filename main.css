@@ -1,0 +1,140 @@
+html {
+	background-color: #131B1E;
+}
+
+body {
+	font-family: 'Roboto', sans-serif;
+
+}
+
+.bg-dark-gray {
+	background-color: #182226;
+}
+
+.font-bold, .font-black {
+	font-weight: 900 !important;
+}
+
+.bg-light-gray {
+	background-color: #131B1E;
+
+}
+
+.flex {
+	display: flex;
+}
+
+a {
+	display: inline-block !important;
+}
+
+.main-body {
+	width: 75vw;
+	height: auto;
+	padding: 30px;
+	background: white;
+}
+
+.header-h1 {
+	padding-top: 30px;
+	border-bottom: 1px solid black;
+	height: 60px;
+	text-align: center;
+	margin: 0px;
+}
+
+#main {
+	display: flex;
+	width: 100vw;
+	height: calc(100vh - 90px);
+}
+
+
+
+.right-side {
+	width: 50%;
+}
+
+.right-side h1 {
+	width: 100%;
+	text-align: center;
+	margin-top: 30%;
+	margin-bottom: 50px;
+}
+
+.right-side h1:after {
+	display: block;
+	content: '';
+	height: 4px;
+	background: black;
+	width: 100px;
+	margin: 0 auto;
+}
+
+#signature {
+
+}
+
+#signature-preview {
+	display: flex;
+	justify-content: start;
+	}
+
+.input-label-group {
+	position: relative;
+	width: 100%;
+	height: 50px;
+}
+
+.bg-color {
+	background-color: #27AE60;
+}
+
+
+input:focus {
+	outline: none;
+}
+
+input {
+	height: 40px;
+	padding: 1rem;
+	width: 100%;
+
+
+}
+
+
+
+
+/* Modal */
+
+.code-modal {
+	display: none;
+	height: 100vh;
+	width: 100vw;
+	background: rgba(250,250,250,.5);
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	align-items: center;
+	justify-content: center;
+}
+
+.code-modal-inner {
+	width: 50vw;
+	height: 50vh;
+	background: white;
+	border: 1px solid black;
+	border-radius: 3px;
+}
+
+.code-modal-inner h1 {
+	text-align: center;
+	padding: 10px;
+}
+
+#code {
+	border: 1px solid black;
+	margin: 40px;
+	padding: 20px;
+}

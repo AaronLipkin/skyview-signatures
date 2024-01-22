@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html ng-app="signaturegen">
+  <head>
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.min.js"
+      integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              clifford: "#da373d",
+            },
+          },
+        },
+      };
+    </script>
+    <script type="text/javascript" src="app.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="main.css" />
+    <link
+      rel="shortcut icon"
+      href="http://sparxoo.com/wp-content/uploads/2018/09/Sparxoo-logo.png"
+    />
+    <title>Signature Generator</title>
+  </head>
+
+  <body
+    ng-controller="mainController as main"
+    ng-cloak
+    class="flex items-center justify-center h-screen"
+  >
+    <div class="w-3/4 p-8 bg-dark-gray rounded-lg shadow-xl">
+      <div class="text-3xl font-black text-center text-white pt-4 pb-8">
+        Email Signature Tool
+      </div>
+      <div class="flex items-center justify-center">
+        <div class="w-1/2 pr-12 border-r border-solid border-white">
+          <form class="" id="signature-info" ng-submit="main.submit()">
+            <label
+              class="block text-white font-bold mt-4 uppercase text-xs mb-1"
+              for="person-name"
+              >Name</label
+            >
+            <input
+              class="rounded bg-light-gray text-white text-sm px-4"
+              placeholder="First Last"
+              type="text"
+              ng-model="main.name"
+              id="person-name"
+            />
+
+            <label
+              class="block text-white font-bold mt-4 uppercase text-xs mb-1"
+              for="title"
+              >Title</label
+            >
+
+            <input
+              class="rounded bg-light-gray text-white text-sm px-4"
+              type="text"
+              placeholder="Job Title"
+              ng-model="main.title"
+              id="title"
+            />
+            <label
+              class="block text-white font-bold mt-4 uppercase text-xs mb-1"
+              for="office"
+              >Office Phone</label
+            >
+            <input
+              class="rounded bg-light-gray text-white text-sm px-4"
+              type="tel"
+              placeholder="123.456.7890"
+              ng-model="main.office"
+              id="office"
+            />
+
+            <label
+              class="block text-white font-bold mt-4 uppercase text-xs mb-1"
+              for="mobile"
+              >Email</label
+            >
+            <input
+              class="rounded bg-light-gray text-white text-sm px-4"
+              placeholder="first.last@skyviewadvisors.com"
+              type="text"
+              ng-model="main.email"
+              id="mobile"
+            />
+
+            <button
+              class="btn p-4 py-2 bg-color rounded-md text-white block mt-6"
+              data-clipboard-target="#signature"
+            >
+              Copy Signature!
+            </button>
+          </form>
+        </div>
+        <div class="w-1/2 pl-12">
+          <div class="mb-2 text-white text-center">PREVIEW</div>
+          <div id="signature-preview" class="bg-white rounded-lg p-8">
+            <table id="signature" style="font-family: 'Helvetica'">
+              <tr>
+                <td
+                  style="
+                    text-align: left;
+                    border-right: 1px solid #ca37fe;
+                    padding: 0px 20px;
+                  "
+                >
+                  <img
+                    src="https://croow.com/wp-content/uploads/2023/12/logo.png"
+                    width="120"
+                  />
+                  <table>
+                    <tr>
+                      <td>
+                        <div style="height: 2px"></div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td
+                        style="
+                          width: 120px;
+                          text-align: center;
+                          letter-spacing: 4px;
+                        "
+                      >
+                        <a
+                          href="https://www.linkedin.com/company/9260361/"
+                          target="_blank"
+                          ><img
+                            src="https://croow.com/wp-content/uploads/2023/12/Path-6197.png"
+                            width="15"
+                            alt=""
+                        /></a>
+                        <a
+                          href="https://www.youtube.com/channel/UCzmynY3DIh2934e7k06aIGw"
+                          target="_blank"
+                          ><img
+                            src="https://croow.com/wp-content/uploads/2023/12/Path-6198.png"
+                            width="15"
+                            alt=""
+                        /></a>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+                <td style="padding: 0px 10px">
+                  <table>
+                    <tr style="height: 25px; padding-bottom: 0px">
+                      <td style="height: 25px; padding-bottom: 0px">
+                        <div>
+                          <b
+                            style="
+                              font-size: 25px;
+                              height: 28px;
+                              display: block;
+                              padding-bottom: 0px;
+                            "
+                            >{{main.name || 'First Last'}}</b
+                          >
+                        </div>
+                      </td>
+                    </tr>
+                    <tr style="height: 13px; padding-top: 0px">
+                      <td style="height: 13px">
+                        <div
+                          style="font-size: 12px; color: #12416c; height: 13px"
+                        >
+                          {{main.title || 'Job Title'}}
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div
+                          style="color: #12416c; font-size: 10px; height: 10px"
+                        >
+                          Skyview Advisors
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div style="height: 10px"></div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div style="font-size: 10px; height: 10px">
+                          P:
+                          <span style="color: #12416c"
+                            >{{main.office || '813.123.4567'}}</span
+                          >
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div style="font-size: 10px; height: 10px">
+                          E:
+                          <span style="color: #12416c"
+                            >{{main.email ||
+                            'joe.smith@skyviewadvisors.com'}}</span
+                          >
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div style="padding-top: 5px"></div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div style="font-size: 10px; height: 10px">
+                          <b>Process. Execution. Results.</b>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div style="font-size: 10px; height: 18px">
+                          <span
+                            ><a
+                              style="color: #12416c"
+                              href="www.SkyviewAdvisors.com"
+                              >www.SkyviewAdvisors.com</a
+                            ></span
+                          >
+                        </div>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
